@@ -1,0 +1,10 @@
+*.suo
+*.user
+bin
+obj
+packages
+.vs
+/REST/.localhistory
+/.localhistory/src/CompleteAdmin
+/REST
+/.localhistory
