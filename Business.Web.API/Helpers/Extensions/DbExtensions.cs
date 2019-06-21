@@ -8,6 +8,8 @@ namespace Business.Web.API.Helpers.Extensions
 {
     internal static class DbExtensions
     {
+        private const int FkDeleteSqlErrorCode = 547;
+
         internal static bool IsDatabaseFkDeleteException(this DbUpdateException updateEx, out string foreignKeyErrorMessage)
         {
             foreignKeyErrorMessage = null;
@@ -22,7 +24,7 @@ namespace Business.Web.API.Helpers.Extensions
 
             if (errors != null)
             {
-                foreach (var exceptionError in errors.Where(e => e.Number == 547))
+                foreach (var exceptionError in errors.Where(e => e.Number == FkDeleteSqlErrorCode))
                 {
                     errorMessages.AppendLine($"Message: {exceptionError.Message}");
                     errorMessages.AppendLine($"ErrorNumber: {exceptionError.Number}");

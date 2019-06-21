@@ -12,7 +12,7 @@ namespace Business.Core.Messaging.Common.Helpers
         public static Expression<Func<T, bool>> Begin<T>(bool value = false)
         {
             if (value)
-                return parameter => true; // value cannot be used in place of true/false
+                return parameter => true;
 
             return parameter => false;
         }
